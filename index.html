@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #page4 .story-input-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            margin: 10px 0 0 0;
+            flex-grow: 1;
+            padding: 0;
+        }
+        
+        .story-textarea {
+            width: 100%;
+            max-width: 100%;
+            min-height: 300px;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-left: 4px solid #e74c3c;
+            border-radius: 5px;
+            resize: vertical;
+            outline: none;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        #page4.container {
+            padding: 20px 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="page1">
+        <h1>Listening Game</h1>
+        <form id="nameForm">
+            <div class="form-group">
+                <label for="userName">Your Name:</label>
+                <input type="text" id="userName" required>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+
+    <div class="container" id="page2" style="display: none;">
+        <h1>Welcome to Listening Game</h1>
+        <div class="audio-container">
+            <p id="userNameDisplay" class="user-greeting"></p>
+            <div class="audio-player">
+                <p>Tap to play the audio</p>
+                <audio id="gameAudio" src="WhatsApp Audio 2025-03-22 at 1.20.58 PM.mpeg"></audio>
+                <button id="playButton" class="btn">Play Audio</button>
+            </div>
+            <div class="image-container">
+                <img src="WhatsApp Image 2025-03-22 at 1.20.58 PM.jpeg" alt="Game Image">
+            </div>
+        </div>
+        <button id="nextToPage3" class="btn">Next</button>
+    </div>
+
+    <div class="container" id="page3" style="display: none;">
+        <h1>Question</h1>
+        <div class="content-wrapper">
+            <div class="question-container">
+                <div class="question-text">
+                    Find the words related to the meaning "happiness"
+                </div>
+                <input type="text" id="happinessWords" class="question-input" required placeholder="Type your answer here">
+            </div>
+            <div class="navigation-buttons">
+                <button id="prevToPage2" class="nav-btn prev-btn">Previous</button>
+                <button id="nextToPage4" class="nav-btn next-btn">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="page4" style="display: none;">
+        <h1>Evaluation Criteria</h1>
+        <div class="criteria-box">
+            <p>Continue the story in 25-30 words. Use at least two words related to happiness.</p>
+            <h3>Scoring Criteria (5 Marks):</h3>
+            <div class="criteria-item">
+                <h4>1. Use of Words (2 Marks):</h4>
+                <p>- Use at least two words that mean happiness.</p>
+            </div>
+            <div class="criteria-item">
+                <h4>2. Natural Flow & Accuracy (2 Marks):</h4>
+                <p>- The story should flow well and have no spelling or grammar mistakes.</p>
+                <p>(Use your word skills carefully to avoid mistakes!)</p>
+            </div>
+            <div class="criteria-item">
+                <h4>3. Word Count (1 Mark):</h4>
+                <p>- Keep your story between 25-30 words.</p>
+            </div>
+        </div>
+        <div class="story-input-container" style="padding: 0; width: 100%; max-width: 100%; margin: 0;">
+            <textarea id="storyAnswer" class="story-textarea" rows="10" placeholder="Type your story here..." required style="width: 100%; max-width: 100%; margin: 0 auto;"></textarea>
+            <div class="validation-message">Please write your story (25-30 words) before submitting.</div>
+        </div>
+        <div class="navigation-buttons">
+            <button id="prevToPage3" class="nav-btn prev-btn">Previous</button>
+            <button id="submitFinal" class="nav-btn submit-btn">Submit</button>
+        </div>
+    </div>
+
+    <div class="container" id="resultPage" style="display: none;">
+        <h1>Thank You!</h1>
+        <p class="success-message">You have successfully accomplished!</p>
+        <div class="result-box">
+            <h2>Your Results</h2>
+            <p>Time taken to complete: <span id="timeTaken"></span></p>
+            <div id="userAnswers" class="user-answers-container"></div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html> 
